@@ -53,3 +53,31 @@
         .card a:hover {
             background-color: #003d80;
         }
+
+@media (max-width: 992px) {
+    body {
+        flex-direction: column; /* Ubah orientasi menjadi kolom */
+        padding: 20px; /* Tambahkan padding untuk menghindari elemen terlalu dekat */
+    }
+
+    .container {
+        width: 90%; /* Kurangi lebar menjadi 90% layar */
+        gap: 30px; /* Kurangi jarak antar elemen */
+        padding-top: 30px; /* Kurangi padding atas */
+        padding-bottom: 30px; /* Kurangi padding bawah */
+    }
+
+    .card {
+        padding: 15px; /* Kurangi padding pada card */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Kurangi intensitas bayangan */
+    }
+
+    .card h3 {
+        font-size: 16px; /* Kurangi ukuran font heading */
+    }
+
+    .card a {
+        padding: 8px 15px; /* Kurangi padding tombol */
+        font-size: 14px; /* Sesuaikan ukuran font tombol */
+    }
+}
