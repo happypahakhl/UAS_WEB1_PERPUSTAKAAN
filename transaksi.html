@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaksi</title>
+    <link rel="stylesheet" href="transaksi.css">
+</head>
+<body>
+    <header>
+        <h1>Layanan Pinjaman E-PERPUSTAKAAN</h1>
+    </header>
+    <div class="form-container">
+        <h2>Form Pinjaman</h2>
+        <form id="transactionForm">
+            <div class="form">
+                <label for="nama">Nama:</label>
+                <input type="text" id="nama" name="nama" required>
+            </div>
+            <div class="form">
+                <label for="tanggal">Tanggal:</label>
+                <input type="date" id="tanggal" name="tanggal" required>
+            </div>
+            <div class="form">
+                <label for="jumlah">Jumlah:</label>
+                <input type="number" id="jumlah" name="jumlah" required>
+            </div>
+            <div class="form">
+                <label for="namabuku">Nama Buku:</label>
+                <input type="text" id="namabuku" name="namabuku" required>
+            </div>
+            <div class="form">
+                <button type="submit">Simpan</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('transactionForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Mengambil nilai dari form
+            let nama = document.getElementById('nama').value;
+            let tanggal = document.getElementById('tanggal').value;
+            let jumlah = document.getElementById('jumlah').value;
+            let namabuku = document.getElementById('namabuku').value;
+
+            // Validasi input
+            if (nama === '' || tanggal === '' || jumlah === '' || namabuku === '') {
+                alert("Harap isi semua kolom sebelum menyimpan.");
+                return;
+            }
+
+            // Menyimpan transaksi ke LocalStorage
+            let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+            transactions.push({
+                nama: nama,
+                tanggal: tanggal,
+                jumlah: jumlah,
+                namabuku: namabuku
+            });
+            localStorage.setItem('transactions', JSON.stringify(transactions));
+
+            // Reset form dan pemberitahuan
+            document.getElementById('transactionForm').reset();
+            alert("Transaksi berhasil disimpan!");
+        });
+    </script>
+</body>
+</html>

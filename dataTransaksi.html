@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Transaksi</title>
+    <link rel="stylesheet" href="data.css">
+</head>
+<body>
+    <header>
+        <h1>Data Peminjam E-PERPUSTAKAAN</h1>
+    </header>
+    <div class="table-container">
+        <table border="1" id="transactionTable">
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Tanggal</th>
+                    <th>Jumlah</th>
+                    <th>Nama Buku</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="form-group">
+            <button onclick="resetTransactions()">Reset</button>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        // Memuat data transaksi dari LocalStorage saat halaman dimuat
+        window.onload = function() {
+            let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+            let tableBody = document.getElementById('transactionTable').querySelector('tbody');
+
+            if (transactions.length === 0) {
+                let row = document.createElement('tr');
+                row.innerHTML = `<td colspan="4" style="text-align: center;">Tidak ada data transaksi</td>`;
+                tableBody.appendChild(row);
+            } else {
+                transactions.forEach(transaction => {
+                    let row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${transaction.nama}</td>
+                        <td>${transaction.tanggal}</td>
+                        <td>${transaction.jumlah}</td>
+                        <td>${transaction.namabuku}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            }
+        };
+
+        	 function resetTransactions() {
+            if (confirm("Apakah Anda yakin ingin mereset semua data transaksi?")) {
+                localStorage.removeItem('transactions');
+                location.reload();
+            }
+         }
+    </script>
+</body>
+</html>
