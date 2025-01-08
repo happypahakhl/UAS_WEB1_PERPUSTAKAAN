@@ -87,50 +87,61 @@ body {
     padding: 20px 0;
     text-align: center;
 }
-
 @media (max-width: 992px) {
+    /* Body */
+    body {
+        margin: 10px;
+        font-size: 14px; /* Sesuaikan ukuran font */
+    }
+
     /* Header */
-    .header {
-        flex-direction: column; /* Ubah tata letak menjadi kolom */
-        text-align: center; /* Pusatkan teks */
-        padding: 15px 10px; /* Sesuaikan padding */
+    header {
+        padding: 10px;
+        font-size: 18px; /* Perkecil ukuran font */
     }
 
-    .logo img {
-        height: 30px; /* Perkecil ukuran logo */
-        margin-bottom: 10px; /* Tambahkan jarak bawah */
+    h1 {
+        font-size: 24px; /* Perkecil ukuran heading */
     }
 
-    .menu ul {
-        flex-direction: column; /* Tata letak menu vertikal */
-        gap: 10px; /* Kurangi jarak antar item */
-        margin-top: 10px; /* Tambahkan jarak atas */
+    /* Form Container */
+    .form-container {
+        width: 100%; /* Gunakan seluruh lebar layar */
+        padding: 15px; /* Kurangi padding */
     }
 
-    /* Koleksi Buku */
-    .book-grid {
-        grid-template-columns: repeat(2, 1fr); /* Grid 2 kolom */
-        gap: 15px; /* Kurangi jarak antar item */
+    label {
+        font-size: 13px; /* Sesuaikan ukuran label */
     }
 
-    .book-item {
-        padding: 12px; /* Kurangi padding */
-        text-align: center; /* Rata tengah isi */
+    input {
+        font-size: 13px; /* Perkecil ukuran input */
+        padding: 6px; /* Kurangi padding */
     }
 
-    .book-item img {
-        height: auto; /* Sesuaikan tinggi gambar */
+    button {
+        font-size: 14px; /* Perkecil ukuran tombol */
+        padding: 8px 10px; /* Kurangi padding tombol */
     }
 
-    .book-item h3 {
-        font-size: 16px; /* Sesuaikan ukuran font */
-        margin: 8px 0; /* Kurangi margin vertikal */
+    /* Table Container */
+    .table-container {
+        width: 100%; /* Gunakan seluruh lebar layar */
+        padding: 15px; /* Kurangi padding */
     }
 
-    /* Footer */
-    .footer p {
-        font-size: 0.9rem; /* Ukuran teks lebih kecil */
-        padding: 12px 0; /* Kurangi padding vertikal */
-        text-align: center; /* Pusatkan teks */
+    table {
+        font-size: 12px; /* Perkecil ukuran teks tabel */
+    }
+
+    th, td {
+        padding: 6px; /* Kurangi padding tabel */
+    }
+
+    /* Text Alignment */
+    th, td {
+        text-align: center; /* Rata tengah teks untuk memaksimalkan ruang */
     }
 }
+
+
